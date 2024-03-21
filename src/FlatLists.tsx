@@ -29,10 +29,10 @@ const dados: Item[] = [
 
 const renderItem = ({ item }: { item: Item }) => (
     <TouchableOpacity style={styles.item}>
-        <Text>{item.nome}</Text>
-        <Text>{item.preco}</Text>
-        <Text>{item.ingredientes}</Text>
-        <Image source={item.imagemTamanho}/>
+        <Text style={[styles.corFrases, styles.nomeFont]} >{item.nome}</Text>
+        <Text style={[styles.corFrases, styles.precoFont]}>{item.preco}</Text>
+        <Text style={styles.corFrases}>{item.ingredientes}</Text>
+        <Image source={item.image} style={styles.imagemtamanho}/>
     </TouchableOpacity >
 )
 
@@ -41,7 +41,8 @@ function FlatLists(): React.JSX.Element {
         <View style={styles.container}>
             <StatusBar backgroundColor="black" barStyle='light-content' />
             <View style={styles.header}>
-                <Text style={styles.headerText}>chapadão lanches</Text>
+            <Image source={require('./assets/images/chapadão2.png')} style={styles.logo}
+                    />
             </View>
             <FlatList
                 showsVerticalScrollIndicator={false}
@@ -51,18 +52,21 @@ function FlatLists(): React.JSX.Element {
             />
             <View style={styles.footer}>
                 <TouchableOpacity>
-                    <Image source={require('./assets/images/home.png')} style={styles.footerIcon}
+                    <Image source={require('./assets/images/casa.png')} style={styles.footerIcon}
                     />
                 </TouchableOpacity>
 
                 <TouchableOpacity>
-                    <Image source={require('./assets/images/orders.png')} style={styles.footerIcon} />
+                    <Image source={require('./assets/images/lista-de-afazeres.png')} style={styles.footerIcon} />
                 </TouchableOpacity>
 
                 <TouchableOpacity>
-                    <Image source={require('./assets/images/profile.png')} style={styles.footerIcon} />
+                    <Image source={require('./assets/images/usuario-de-perfil.png')} style={styles.footerIcon} />
                 </TouchableOpacity>
 
+                <TouchableOpacity>
+                    <Image source={require('./assets/images/barra-de-menu.png')} style={styles.footerIcon} />
+                </TouchableOpacity>
 
             </View>
         </View>
@@ -72,34 +76,43 @@ function FlatLists(): React.JSX.Element {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        marginTop: 30
+        marginTop: 0
     },
     item: {
-        backgroundColor: "#d5ffe4",
+        backgroundColor: "#c32113",
         padding: 20,
         marginVertical: 8,
-        marginHorizontal: 16
+        marginHorizontal: 16,
+        borderRadius: 20,
+        borderColor: 'red',
+        borderWidth: 3
     },
     header: {
-        backgroundColor: '#d5ffe4',
+        backgroundColor: '#c32113',
         alignItems: 'center',
-        paddingVertical: 50
+        paddingVertical: 2,
+        borderBottomLeftRadius:15,
+        borderBottomRightRadius:15
+        
 
     },
     headerText: {
         fontSize: 20,
         fontWeight: 'bold',
-        color: ''
+        color: 'yellow'
 
     },
 
     footer: {
         borderTopWidth: 0.2,
-        backgroundColor: 'white',
+        backgroundColor: '#c32113',
         flexDirection: 'row',
         justifyContent: 'space-around',
         alignItems: 'center',
-        paddingVertical: 10
+        paddingVertical: 10,
+
+        borderTopLeftRadius:5,
+        borderTopRightRadius:5
 
     },
     footerIcon: {
@@ -107,9 +120,26 @@ const styles = StyleSheet.create({
         height: 30
     },
     imagemtamanho:{
-height:20,
-width:20
+height:170,
+width:320,
+borderRadius:10
 
+
+    },
+    corFrases:{
+color: 'yellow'
+    },
+    nomeFont:{
+        fontSize:25
+    },
+    precoFont:{
+        fontSize:15
+    },
+    logo:{
+width:100,
+height:100
+        
     }
+
 })
 export default FlatLists; 
