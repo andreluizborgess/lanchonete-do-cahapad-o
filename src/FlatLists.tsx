@@ -10,21 +10,21 @@ interface Item {
 }
 
 const dados: Item[] = [
-    { id: "1", nome: "x-bacon", preco: "R$ 17.00", ingredientes: "pão, hamburguer, queijo, bacon, alface, tomate", image: require('./assets/images/x-tudo.jpg') },
-    { id: "2", nome: "x-salada", preco: "R$ 15.00", ingredientes: "pão, hamburguer, queijo, presunto, alface, tomate", image: require('./assets/images/x-tudo.jpg') },
-    { id: "3", nome: "x-tudo", preco: "R$ 20.00", ingredientes: "pão, hamburguer, queijo, presunto, bacon, calabresa, batata palha, alface, tomate", image: require('./assets/images/x-tudo.jpg') },
-    { id: "4", nome: "hotdog", preco: "R$ 12.00", ingredientes: "pão, duas salsichas, catchup, maionese, molho verde, batata palha", image: require('./assets/images/x-tudo.jpg') },
-    { id: "5", nome: "panqueca de carne", preco: "R$ 15.00", ingredientes: "massa, carne moída", image: require('./assets/images/x-tudo.jpg') },
-    { id: "6", nome: "fritas", preco: "R$ 20.00", ingredientes: "porção de batata frita", image: require('./assets/images/x-tudo.jpg') },
-    { id: "7", nome: "pastel de queijo", preco: "R$ 12.00", ingredientes: "massa de pastel e queijo", image: require('./assets/images/x-tudo.jpg') },
-    { id: "8", nome: "pastel de carne", preco: "R$ 12.00", ingredientes: "massa de pastel e carne moida", image: require('./assets/images/x-tudo.jpg') },
-    { id: "9", nome: "cheese burguer", preco: "R$ 14.00", ingredientes: "pão, carne e queijo", image: require('./assets/images/x-tudo.jpg') },
-    { id: "10", nome: "duplo queijo e bacon", preco: "R$ 20.00", ingredientes: "dois hamburgueres, bacon e queijo extra, alface e tomate", image: require('./assets/images/x-tudo.jpg') },
-    { id: "11", nome: "coca cola lata", preco: "R$ 5.00", ingredientes: "coca cola", image: require('./assets/images/x-tudo.jpg') },
-    { id: "12", nome: "coca cola 2l", preco: "R$ 10.00", ingredientes: "coca cola 2l", image: require('./assets/images/x-tudo.jpg') },
-    { id: "12", nome: "funada lata", preco: "R$ 5.00", ingredientes: "funada", image: require('./assets/images/x-tudo.jpg') },
-    { id: "14", nome: "funada 2l", preco: "R$ 8.00", ingredientes: "funada 2l", image: require('./assets/images/x-tudo.jpg') },
-    { id: "15", nome: "agua", preco: "R$ 3.00", ingredientes: "agua mineral", image: require('./assets/images/x-tudo.jpg') },
+    { id: "1", nome: "x-ʙᴀᴄᴏɴ", preco: "R$ 17.00", ingredientes: "pão, hamburguer, queijo, bacon, alface, tomate", image: require('./assets/images/x-tudo.jpg') },
+    { id: "2", nome: "x-sᴀʟᴀᴅᴀ", preco: "R$ 15.00", ingredientes: "pão, hamburguer, queijo, presunto, alface, tomate", image: require('./assets/images/x-tudo.jpg') },
+    { id: "3", nome: "x-ᴛᴜᴅᴏ", preco: "R$ 20.00", ingredientes: "pão, hamburguer, queijo, presunto, bacon, calabresa, batata palha, alface, tomate", image: require('./assets/images/x-tudo.jpg') },
+    { id: "4", nome: "ʜᴏᴛᴅᴏɢ", preco: "R$ 12.00", ingredientes: "pão, duas salsichas, catchup, maionese, molho verde, batata palha", image: require('./assets/images/x-tudo.jpg') },
+    { id: "5", nome: "ᴘᴀɴǫᴜᴇᴄᴀ ᴅᴇ ᴄᴀʀɴᴇ", preco: "R$ 15.00", ingredientes: "massa, carne moída", image: require('./assets/images/x-tudo.jpg') },
+    { id: "6", nome: "ғʀɪᴛᴀs", preco: "R$ 20.00", ingredientes: "porção de batata frita", image: require('./assets/images/x-tudo.jpg') },
+    { id: "7", nome: "ᴘᴀsᴛᴇʟ ᴅᴇ ǫᴜᴇɪᴊᴏ", preco: "R$ 12.00", ingredientes: "massa de pastel e queijo", image: require('./assets/images/x-tudo.jpg') },
+    { id: "8", nome: "ᴘᴀsᴛᴇʟ ᴅᴇ ᴄᴀʀɴᴇ", preco: "R$ 12.00", ingredientes: "massa de pastel e carne moida", image: require('./assets/images/x-tudo.jpg') },
+    { id: "9", nome: "ᴄʜᴇᴇsᴇ ʙᴜʀɢᴜᴇʀ", preco: "R$ 14.00", ingredientes: "pão, carne e queijo", image: require('./assets/images/x-tudo.jpg') },
+    { id: "10", nome: "ᴅᴜᴘʟᴏ ǫᴜᴇɪᴊᴏ ᴇ ʙᴀᴄᴏɴ", preco: "R$ 20.00", ingredientes: "dois hamburgueres, bacon e queijo extra, alface e tomate", image: require('./assets/images/x-tudo.jpg') },
+    { id: "11", nome: "ᴄᴏᴄᴀ ᴄᴏʟᴀ ʟᴀᴛᴀ", preco: "R$ 5.00", ingredientes: "coca cola", image: require('./assets/images/x-tudo.jpg') },
+    { id: "12", nome: "ᴄᴏᴄᴀ ᴄᴏʟᴀ 2ʟ", preco: "R$ 10.00", ingredientes: "coca cola 2l", image: require('./assets/images/x-tudo.jpg') },
+    { id: "12", nome: "ғᴜɴᴀᴅᴀ ʟᴀᴛᴀ", preco: "R$ 5.00", ingredientes: "funada", image: require('./assets/images/x-tudo.jpg') },
+    { id: "14", nome: "ғᴜɴᴀᴅᴀ 2ʟ", preco: "R$ 8.00", ingredientes: "funada 2l", image: require('./assets/images/x-tudo.jpg') },
+    { id: "15", nome: "ᴀɢᴜᴀ", preco: "R$ 3.00", ingredientes: "agua mineral", image: require('./assets/images/x-tudo.jpg') },
 ];
 
 const renderItem = ({ item }: { item: Item }) => (
