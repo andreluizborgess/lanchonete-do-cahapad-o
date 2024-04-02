@@ -5,9 +5,10 @@ import { FlatList } from 'react-native';
 import login from './src/Login';
 import Login from './src/Login';
 import Carrinho from './src/Carrinho';
+import CadastroProduto from './src/screens/CadastroProduto';
 function App(): React.JSX.Element {
   return (
-    <Carrinho/>
+    <CadastroProduto/>
   );
 }
 
