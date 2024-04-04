@@ -3,34 +3,37 @@ import { Image, StatusBar, StyleSheet, Text, TextInput, TouchableOpacity, View }
 import { launchCamera, launchImageLibrary } from "react-native-image-picker";
 import axios from 'axios';
 
-const CadastroProduto: React.FC = () => {
-    const [produtos, setProdutos] = useState<Produto[]>([]);
+const CadastroCliente: React.FC = () => {
+    const [foto, setFoto] = useState<any>('');
     const [nome, setNome] = useState<string>('');
-    const [preco, setPreco] = useState<string>('');
-    const [ingredientes, setIngredientes] = useState<string>('');
-    const [imagem, setImagem] = useState<any>('');
+    const [telefone, setTelefone] = useState<number>(0);
+    const [endereco, setEndereco] = useState<string>('');
+    const [email, setEmail] = useState<string>('');
+    const [password, setPassword] = useState<string>('');
 
-    const cadastrarProduto = async () => {
-        try{
-const formData = new FormData();
-formData.append('nome', nome);
-formData.append('preco', preco);
-formData.append('ingredientes', ingredientes);
-formData.append('imagem',{
-    uri:imagem,
-    type:'image/jpeg',
-    name: new Date() + '.jpg'
+    const cadastrarCliente = async () => {
+        try {
+            const formData = new FormData();
+            formData.append('nome', nome);
+            formData.append('telefone', telefone);
+            formData.append('endereco', endereco);
+            formData.append('email', email);
+            formData.append('password', password);
+            formData.append('foto', {
+                uri: foto,
+                type: 'foto/jpeg',
+                name: new Date() + '.jpg'
 
-});
+            });
 
-const response = await axios.post ('http://10.137.11.204:8000/api/produtos', formData, {
-    headers:{
-        'Content-Type': 'multipart/form-data'
-    }
-});
-}catch(error) {
-    console.log(error)
-}
+            const response = await axios.post('http://10.137.11.204:8000/api/produtos', formData, {
+                headers: {
+                    'Content-Type': 'multipart/form-data'
+                }
+            });
+        } catch (error) {
+            console.log(error)
+        }
 
     }
 
@@ -42,36 +45,36 @@ const response = await axios.post ('http://10.137.11.204:8000/api/produtos', for
             maxWidth: 2000
         };
 
-        launchCamera(options, response =>{
-            if(response.didCancel){
+        launchCamera(options, response => {
+            if (response.didCancel) {
                 console.log('cancelado pelo usuário');
-            } else if (response.error){
-            console.log('erro ao abrir a camera');
-            } else{
+            } else if (response.error) {
+                console.log('erro ao abrir a camera');
+            } else {
                 let imageUri = response.uri || response.assets?.[0]?.uri;
-                setImagem(imageUri);
+                setFoto(imageUri);
                 console.log(imageUri);
-                
+
             }
         })
     }
 
-    const selecionarImagem = () => {
+    const selecionarFoto = () => {
         const options = {
             mediaType: 'photo',
             includeBase: false,
-            maxHeight:2000,
-            maxWidth:2000
+            maxHeight: 2000,
+            maxWidth: 2000
         };
 
-        launchImageLibrary(options, (response)=>{
-            if(response.didCancel){
-                console.log('cancelado pelo usuário');  
-            } else if (response.error){
+        launchImageLibrary(options, (response) => {
+            if (response.didCancel) {
+                console.log('cancelado pelo usuário');
+            } else if (response.error) {
                 console.log('erro ao abrir a galeria');
             } else {
                 let imageUri = response.uri || response.assets?.[0]?.uri;
-                setImagem(imageUri);
+                setFoto(imageUri);
             }
         })
     }
@@ -83,14 +86,14 @@ const response = await axios.post ('http://10.137.11.204:8000/api/produtos', for
             </View>
             <View style={styles.form}>
                 <TextInput style={styles.input}
-                    placeholder="Nome do Produto"
+                    placeholder="Nome do  cliente"
                     value={nome}
                     onChangeText={setNome} />
 
                 <TextInput style={styles.input}
-                    placeholder="Preço"
-                    value={preco}
-                    onChangeText={setPreco} />
+                    placeholder="telefone"
+                    value={telefone}
+                    onChangeText={setTelefone} />
 
                 <TextInput style={styles.input}
                     placeholder="ingredientes"
@@ -100,7 +103,7 @@ const response = await axios.post ('http://10.137.11.204:8000/api/produtos', for
                     {imagem ? <Image source={{ uri: imagem }} style={styles.imagemSelecionada} /> : null}
 
                 </View>
-                <TouchableOpacity style={styles.imageButton}onPress={selecionarImagem}>
+                <TouchableOpacity style={styles.imageButton} onPress={selecionarImagem}>
                     <Text style={styles.imageButtonText}>selecionar imagem</Text>
                 </TouchableOpacity>
 
@@ -139,9 +142,9 @@ const styles = StyleSheet.create({
         height: 40,
         borderColor: 'grey',
         borderWidth: 1,
-        marginBottom:10,
-        paddingHorizontal:10,
-        borderRadius:10
+        marginBottom: 10,
+        paddingHorizontal: 10,
+        borderRadius: 10
     },
     imageButton: {
         backgroundColor: 'red',
@@ -176,4 +179,4 @@ const styles = StyleSheet.create({
         fontWeight: 'bold'
     }
 })
-export default CadastroProduto;
+export default CadastroCliente;
