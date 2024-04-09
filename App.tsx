@@ -6,9 +6,10 @@ import login from './src/Login';
 import Login from './src/Login';
 import Carrinho from './src/Carrinho';
 import CadastroProduto from './src/screens/CadastroProduto';
+import CadastroCliente from './src/screens/CadastroClientes';
 function App(): React.JSX.Element {
   return (
-    <CadastroProduto/>
+    <CadastroCliente/>
   );
 }
 

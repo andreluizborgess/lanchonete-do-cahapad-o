@@ -26,7 +26,7 @@ const CadastroCliente: React.FC = () => {
 
             });
 
-            const response = await axios.post('http://10.137.11.204:8000/api/produtos', formData, {
+            const response = await axios.post('http://10.137.11.204:8000/api/clientes', formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }
@@ -90,20 +90,38 @@ const CadastroCliente: React.FC = () => {
                     value={nome}
                     onChangeText={setNome} />
 
-                <TextInput style={styles.input}
+               <TextInput style={styles.input}
                     placeholder="telefone"
                     value={telefone}
-                    onChangeText={setTelefone} />
+                    onChangeText={setTelefone}/>
+
 
                 <TextInput style={styles.input}
-                    placeholder="ingredientes"
-                    value={ingredientes}
-                    onChangeText={setIngredientes} multiline />
+                    placeholder="endereço"
+                    value={endereco}
+                    onChangeText={setEndereco} />
+
+                <TextInput style={styles.input}
+                    placeholder="email"
+                    value={email}
+                    onChangeText={setEmail} />
+
+                <TextInput style={styles.input}
+                    placeholder="password"
+                    value={password}
+                    onChangeText={setPassword} />
+
+                <TextInput style={styles.input}
+                    placeholder="foto"
+                    value={foto}
+                    onChangeText={setFoto} />
+
+
                 <View style={styles.alinhamentoImagemSelecionada}>
-                    {imagem ? <Image source={{ uri: imagem }} style={styles.imagemSelecionada} /> : null}
+                    {foto ? <Image source={{ uri: foto }} style={styles.imagemSelecionada} /> : null}
 
                 </View>
-                <TouchableOpacity style={styles.imageButton} onPress={selecionarImagem}>
+                <TouchableOpacity style={styles.imageButton} onPress={selecionarFoto}>
                     <Text style={styles.imageButtonText}>selecionar imagem</Text>
                 </TouchableOpacity>
 
@@ -111,8 +129,8 @@ const CadastroCliente: React.FC = () => {
                     <Text style={styles.imageButtonText}>tirar foto</Text>
                 </TouchableOpacity>
 
-                <TouchableOpacity style={styles.imageButton} onPress={cadastrarProduto}>
-                    <Text style={styles.imageButtonText}>cadastrar produto</Text>
+                <TouchableOpacity style={styles.imageButton} onPress={cadastrarCliente}>
+                    <Text style={styles.imageButtonText}>cadastrar cliente</Text>
                 </TouchableOpacity>
             </View>
         </View>
