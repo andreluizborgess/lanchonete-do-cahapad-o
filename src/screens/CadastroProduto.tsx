@@ -112,6 +112,25 @@ const response = await axios.post ('http://10.137.11.204:8000/api/produtos', for
                     <Text style={styles.imageButtonText}>cadastrar produto</Text>
                 </TouchableOpacity>
             </View>
+            <View style={styles.footer}>
+                <TouchableOpacity>
+                    <Image source={require('../assets/images/casa.png')} style={styles.footerIcon}
+                    />
+                </TouchableOpacity>
+
+                <TouchableOpacity>
+                    <Image source={require('../assets/images/lista-de-afazeres.png')} style={styles.footerIcon} />
+                </TouchableOpacity>
+
+                <TouchableOpacity>
+                    <Image source={require('../assets/images/usuario-de-perfil.png')} style={styles.footerIcon} />
+                </TouchableOpacity>
+
+                <TouchableOpacity>
+                    <Image source={require('../assets/images/barra-de-menu.png')} style={styles.footerIcon} />
+                </TouchableOpacity>
+
+            </View>
         </View>
     );
 }
@@ -119,6 +138,22 @@ const response = await axios.post ('http://10.137.11.204:8000/api/produtos', for
 const styles = StyleSheet.create({
     container: {
         flex: 1
+    },
+    footer: {
+        borderTopWidth: 0.2,
+        backgroundColor: '#c32113',
+        flexDirection: 'row',
+        justifyContent: 'space-around',
+        alignItems: 'center',
+        paddingVertical: 10,
+        marginVertical:-25,
+        borderTopLeftRadius:5,
+        borderTopRightRadius:5
+    },
+
+    footerIcon: {
+        width: 30,
+        height: 30
     },
     header: {
         backgroundColor: 'red',
