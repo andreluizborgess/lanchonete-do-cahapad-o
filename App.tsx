@@ -4,12 +4,13 @@ import FlatLists from './src/FlatLists';
 import { FlatList } from 'react-native';
 import login from './src/Login';
 import Login from './src/Login';
-import Carrinho from './src/Carrinho';
+import Listagem from './src/Listagem'
 import CadastroProduto from './src/screens/CadastroProduto';
 import CadastroCliente from './src/screens/CadastroClientes';
 function App(): React.JSX.Element {
   return (
-    <CadastroCliente/>
+    //<CadastroProduto/>
+    <Listagem/>
   );
 }
 

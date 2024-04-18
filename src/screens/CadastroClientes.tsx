@@ -26,7 +26,7 @@ const CadastroCliente: React.FC = () => {
 
             });
 
-            const response = await axios.post('http://10.137.11.204:8000/api/clientes', formData, {
+            const response = await axios.post('http://10.137.11.203:8000/api/clientes', formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }
@@ -168,7 +168,7 @@ const styles = StyleSheet.create({
         justifyContent: 'space-around',
         alignItems: 'center',
         paddingVertical: 10,
-        marginVertical:-25,
+        marginVertical:185,
         borderTopLeftRadius:5,
         borderTopRightRadius:5
     },

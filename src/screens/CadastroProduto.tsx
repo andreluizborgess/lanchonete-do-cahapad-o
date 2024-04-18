@@ -23,11 +23,14 @@ formData.append('imagem',{
 
 });
 
-const response = await axios.post ('http://10.137.11.204:8000/api/produtos', formData, {
+const response = await axios.post ('http://10.137.11.203:8000/api/produtos', formData, {
     headers:{
         'Content-Type': 'multipart/form-data'
     }
-});
+}
+);
+
+console.log(response.data)
 }catch(error) {
     console.log(error)
 }
@@ -146,7 +149,7 @@ const styles = StyleSheet.create({
         justifyContent: 'space-around',
         alignItems: 'center',
         paddingVertical: 10,
-        marginVertical:-25,
+        marginVertical:335,
         borderTopLeftRadius:5,
         borderTopRightRadius:5
     },
