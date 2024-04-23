@@ -7,10 +7,28 @@ import Login from './src/Login';
 import Listagem from './src/Listagem'
 import CadastroProduto from './src/screens/CadastroProduto';
 import CadastroCliente from './src/screens/CadastroClientes';
-function App(): React.JSX.Element {
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import CadastroClientes from './src/screens/CadastroClientes';
+
+
+const Stack = createStackNavigator();
+
+function App(): React.ReactElement{
   return (
-    //<CadastroProduto/>
-    <Listagem/>
+  <NavigationContainer>
+    <Stack.Navigator>
+      <Stack.Screen name='FlatLists' component={FlatLists}
+      options={{headerShown:false}}/>
+       <Stack.Screen name='CadastroCliente' component={CadastroCliente}
+      options={{headerShown:false}}/>
+      <Stack.Screen name='CadastroProduto' component={CadastroProduto}
+      options={{headerShown:false}}/>
+      <Stack.Screen name='Listagem' component={Listagem}
+      options={{headerShown:false}}/>
+
+    </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 

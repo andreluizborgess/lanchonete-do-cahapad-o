@@ -32,7 +32,7 @@ const renderItem = ({ item }: { item: Item }) => (
         <Text style={[styles.corFrases, styles.nomeFont]} >{item.nome}</Text>
         <Text style={[styles.corFrases, styles.precoFont]}>{item.preco}</Text>
         <Text style={styles.corFrases}>{item.ingredientes}</Text>
-        <Image source={item.image} style={styles.imagemtamanho}/>
+        <Image source={item.image} style={styles.imagemtamanho} />
     </TouchableOpacity >
 )
 
@@ -41,8 +41,8 @@ function FlatLists(): React.JSX.Element {
         <View style={styles.container}>
             <StatusBar backgroundColor="black" barStyle='light-content' />
             <View style={styles.header}>
-            <Image source={require('./assets/images/chapadão2.png')} style={styles.logo}
-                    />
+                <Image source={require('./assets/images/chapadão2.png')} style={styles.logo}
+                />
             </View>
             <FlatList
                 showsVerticalScrollIndicator={false}
@@ -91,9 +91,9 @@ const styles = StyleSheet.create({
         backgroundColor: '#c32113',
         alignItems: 'center',
         paddingVertical: 2,
-        borderBottomLeftRadius:15,
-        borderBottomRightRadius:15
-        
+        borderBottomLeftRadius: 15,
+        borderBottomRightRadius: 15
+
 
     },
     headerText: {
@@ -111,34 +111,34 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         paddingVertical: 10,
 
-        borderTopLeftRadius:5,
-        borderTopRightRadius:5
+        borderTopLeftRadius: 5,
+        borderTopRightRadius: 5
 
     },
     footerIcon: {
         width: 30,
         height: 30
     },
-    imagemtamanho:{
-height:170,
-width:320,
-borderRadius:10
+    imagemtamanho: {
+        height: 170,
+        width: 320,
+        borderRadius: 10
 
 
     },
-    corFrases:{
-color: 'yellow'
+    corFrases: {
+        color: 'yellow'
     },
-    nomeFont:{
-        fontSize:25
+    nomeFont: {
+        fontSize: 25
     },
-    precoFont:{
-        fontSize:15
+    precoFont: {
+        fontSize: 15
     },
-    logo:{
-width:100,
-height:100
-        
+    logo: {
+        width: 100,
+        height: 100
+
     }
 
 })

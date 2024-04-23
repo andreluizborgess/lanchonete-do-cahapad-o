@@ -26,7 +26,7 @@ const CadastroCliente: React.FC = () => {
 
             });
 
-            const response = await axios.post('http://10.137.11.203:8000/api/clientes', formData, {
+            const response = await axios.post('http://10.137.11.204:8000/api/clientes', formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }
@@ -90,10 +90,10 @@ const CadastroCliente: React.FC = () => {
                     value={nome}
                     onChangeText={setNome} />
 
-               <TextInput style={styles.input}
+                <TextInput style={styles.input}
                     placeholder="telefone"
                     value={telefone}
-                    onChangeText={setTelefone}/>
+                    onChangeText={setTelefone} />
 
 
                 <TextInput style={styles.input}
@@ -168,16 +168,16 @@ const styles = StyleSheet.create({
         justifyContent: 'space-around',
         alignItems: 'center',
         paddingVertical: 10,
-        marginVertical:185,
-        borderTopLeftRadius:5,
-        borderTopRightRadius:5
+        marginVertical: 185,
+        borderTopLeftRadius: 5,
+        borderTopRightRadius: 5
     },
 
     footerIcon: {
         width: 30,
         height: 30
     },
-    
+
     header: {
         backgroundColor: 'red',
         paddingVertical: 10,

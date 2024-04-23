@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import { Image, StatusBar, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
 import { launchCamera, launchImageLibrary } from "react-native-image-picker";
 import axios from 'axios';
+import { useNavigation } from "@react-navigation/native";
+
+
 
 const CadastroProduto: React.FC = () => {
     const [produtos, setProdutos] = useState<Produto[]>([]);
@@ -11,29 +14,29 @@ const CadastroProduto: React.FC = () => {
     const [imagem, setImagem] = useState<any>('');
 
     const cadastrarProduto = async () => {
-        try{
-const formData = new FormData();
-formData.append('nome', nome);
-formData.append('preco', preco);
-formData.append('ingredientes', ingredientes);
-formData.append('imagem',{
-    uri:imagem,
-    type:'image/jpeg',
-    name: new Date() + '.jpg'
+        try {
+            const formData = new FormData();
+            formData.append('nome', nome);
+            formData.append('preco', preco);
+            formData.append('ingredientes', ingredientes);
+            formData.append('imagem', {
+                uri: imagem,
+                type: 'image/jpeg',
+                name: new Date() + '.jpg'
 
-});
+            });
 
-const response = await axios.post ('http://10.137.11.203:8000/api/produtos', formData, {
-    headers:{
-        'Content-Type': 'multipart/form-data'
-    }
-}
-);
+            const response = await axios.post('http://10.137.11.204:8000/api/produtos', formData, {
+                headers: {
+                    'Content-Type': 'multipart/form-data'
+                }
+            }
+            );
 
-console.log(response.data)
-}catch(error) {
-    console.log(error)
-}
+            console.log(response.data)
+        } catch (error) {
+            console.log(error)
+        }
 
     }
 
@@ -45,16 +48,16 @@ console.log(response.data)
             maxWidth: 2000
         };
 
-        launchCamera(options, response =>{
-            if(response.didCancel){
+        launchCamera(options, response => {
+            if (response.didCancel) {
                 console.log('cancelado pelo usuário');
-            } else if (response.error){
-            console.log('erro ao abrir a camera');
-            } else{
+            } else if (response.error) {
+                console.log('erro ao abrir a camera');
+            } else {
                 let imageUri = response.uri || response.assets?.[0]?.uri;
                 setImagem(imageUri);
                 console.log(imageUri);
-                
+
             }
         })
     }
@@ -63,14 +66,14 @@ console.log(response.data)
         const options = {
             mediaType: 'photo',
             includeBase: false,
-            maxHeight:2000,
-            maxWidth:2000
+            maxHeight: 2000,
+            maxWidth: 2000
         };
 
-        launchImageLibrary(options, (response)=>{
-            if(response.didCancel){
-                console.log('cancelado pelo usuário');  
-            } else if (response.error){
+        launchImageLibrary(options, (response) => {
+            if (response.didCancel) {
+                console.log('cancelado pelo usuário');
+            } else if (response.error) {
                 console.log('erro ao abrir a galeria');
             } else {
                 let imageUri = response.uri || response.assets?.[0]?.uri;
@@ -78,6 +81,9 @@ console.log(response.data)
             }
         })
     }
+
+    const navigation = useNavigation();
+
     return (
         <View style={styles.container}>
             <StatusBar backgroundColor="red" barStyle="light-content" />
@@ -103,11 +109,11 @@ console.log(response.data)
                     {imagem ? <Image source={{ uri: imagem }} style={styles.imagemSelecionada} /> : null}
 
                 </View>
-                <TouchableOpacity style={styles.imageButton}onPress={selecionarImagem}>
+                <TouchableOpacity style={styles.imageButton} onPress={selecionarImagem}>
                     <Text style={styles.imageButtonText}>selecionar imagem</Text>
                 </TouchableOpacity>
 
-                <TouchableOpacity style={styles.imageButton} onPress={abrirCamera}>
+                <TouchableOpacity  style={styles.imageButton} onPress={abrirCamera}>
                     <Text style={styles.imageButtonText}>tirar foto</Text>
                 </TouchableOpacity>
 
@@ -121,15 +127,15 @@ console.log(response.data)
                     />
                 </TouchableOpacity>
 
-                <TouchableOpacity>
+                <TouchableOpacity onPress={() => navigation.navigate('FlatLists')}>
                     <Image source={require('../assets/images/lista-de-afazeres.png')} style={styles.footerIcon} />
                 </TouchableOpacity>
 
-                <TouchableOpacity>
+                <TouchableOpacity >
                     <Image source={require('../assets/images/usuario-de-perfil.png')} style={styles.footerIcon} />
                 </TouchableOpacity>
 
-                <TouchableOpacity>
+                <TouchableOpacity >
                     <Image source={require('../assets/images/barra-de-menu.png')} style={styles.footerIcon} />
                 </TouchableOpacity>
 
@@ -149,9 +155,9 @@ const styles = StyleSheet.create({
         justifyContent: 'space-around',
         alignItems: 'center',
         paddingVertical: 10,
-        marginVertical:335,
-        borderTopLeftRadius:5,
-        borderTopRightRadius:5
+        marginVertical: 335,
+        borderTopLeftRadius: 5,
+        borderTopRightRadius: 5
     },
 
     footerIcon: {
@@ -177,9 +183,9 @@ const styles = StyleSheet.create({
         height: 40,
         borderColor: 'grey',
         borderWidth: 1,
-        marginBottom:10,
-        paddingHorizontal:10,
-        borderRadius:10
+        marginBottom: 10,
+        paddingHorizontal: 10,
+        borderRadius: 10
     },
     imageButton: {
         backgroundColor: 'red',
